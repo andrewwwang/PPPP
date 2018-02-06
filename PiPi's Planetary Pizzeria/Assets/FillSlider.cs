@@ -32,13 +32,15 @@ public class FillSlider : MonoBehaviour {
         {
             // move the pizza to the nob location
 
-
-
             // launch the pizza if user pressed space
             Vector2 movement = new Vector2(0, ss.value);
 
             rg2d.AddForce(movement);
+
+			direction = 0;
+
         }
+			
         	
 	}
 
