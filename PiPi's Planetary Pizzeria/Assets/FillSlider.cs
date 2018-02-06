@@ -8,14 +8,20 @@ public class FillSlider : MonoBehaviour {
     public Slider ss;
     public int fillSpeed;
     public GameObject pizzaSlice;
+    public GameObject Arrow;
+    public GameObject point;
 
     private int direction;
     private Rigidbody2D rg2d;
+
+    Vector2 targetPosition;
 
 	// Use this for initialization
 	void Start () {
         direction = 1;
         rg2d = pizzaSlice.GetComponent<Rigidbody2D>();
+
+        targetPosition = transform.position;
 	}
 	
 	// FixedUpdate is called once per interval
@@ -30,14 +36,20 @@ public class FillSlider : MonoBehaviour {
 	
         if ( Input.GetKeyUp(KeyCode.Space) )
         {
+
             // move the pizza to the nob location
 
-            // launch the pizza if user pressed space
-            Vector2 movement = new Vector2(0, ss.value);
+            Vector2 movement = point.transform.position;
+
+            movement.Normalize();
+
+            movement *= ss.value;
 
             rg2d.AddForce(movement);
 
 			direction = 0;
+
+            Arrow.gameObject.SetActive(false);
 
         }
 			
