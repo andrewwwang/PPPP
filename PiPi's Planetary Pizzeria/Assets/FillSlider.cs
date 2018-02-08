@@ -10,9 +10,11 @@ public class FillSlider : MonoBehaviour {
     public GameObject pizzaSlice;
     public GameObject Arrow;
     public GameObject point;
+	public GameObject truck;
 
     private int direction;
     private Rigidbody2D rg2d;
+
 
     Vector2 targetPosition;
 
@@ -28,9 +30,10 @@ public class FillSlider : MonoBehaviour {
 	void FixedUpdate () {
         ss.value += direction * fillSpeed;
 
-        if (ss.value >= ss.maxValue)
-            direction = -1;
+		if (ss.value >= ss.maxValue) {
+			direction = -1;
 
+		}
         else if (ss.value <= ss.minValue)
             direction = 1;
 	
@@ -50,6 +53,7 @@ public class FillSlider : MonoBehaviour {
 			direction = 0;
 
             Arrow.gameObject.SetActive(false);
+			this.gameObject.SetActive (false);
 
         }
 			

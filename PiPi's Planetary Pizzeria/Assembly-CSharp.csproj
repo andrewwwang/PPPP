@@ -51,7 +51,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\arrow.cs" />
      <Compile Include="Assets\FillSlider.cs" />
+     <Compile Include="Assets\PiPiCode.cs" />
+     <Compile Include="Assets\PipiFocus.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
