@@ -12,8 +12,10 @@ public class FillSlider : MonoBehaviour {
     public GameObject point;
 	public GameObject truck;
 
-    private int direction;
+    public static int direction;
+
     private Rigidbody2D rg2d;
+    private SpriteRenderer flipper;
 
 
     Vector2 targetPosition;
@@ -22,27 +24,32 @@ public class FillSlider : MonoBehaviour {
 	void Start () {
         direction = 1;
         rg2d = pizzaSlice.GetComponent<Rigidbody2D>();
+        flipper = truck.GetComponent<SpriteRenderer>();
 
         targetPosition = transform.position;
+
 	}
-	
-	// FixedUpdate is called once per interval
-	void FixedUpdate () {
+
+    // FixedUpdate is called once per interval
+    void FixedUpdate() {
         ss.value += direction * fillSpeed;
 
-		if (ss.value >= ss.maxValue) {
-			direction = -1;
+        if (ss.value >= ss.maxValue) {
+            direction = -1;
+            flipper.flipX = true;
 
-		}
-        else if (ss.value <= ss.minValue)
-            direction = 1;
+        }
+        else if (ss.value <= ss.minValue) {
+        direction = 1;
+        flipper.flipX = false;
+        }
 	
         if ( Input.GetKeyUp(KeyCode.Space) )
         {
 
             // move the pizza to the nob location
 
-            Vector2 movement = point.transform.position;
+            Vector2 movement = point.transform.position - pizzaSlice.transform.position;
 
             movement.Normalize();
 
@@ -55,6 +62,7 @@ public class FillSlider : MonoBehaviour {
             Arrow.gameObject.SetActive(false);
 			this.gameObject.SetActive (false);
 
+            PiPiCode.started = true;
         }
 			
         	

@@ -284,6 +284,8 @@
   <ItemGroup>
     <Compile Include="Assets\arrow.cs" />
     <Compile Include="Assets\FillSlider.cs" />
+    <Compile Include="Assets\PiPiCode.cs" />
+    <Compile Include="Assets\PipiFocus.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
