@@ -54,9 +54,9 @@ public class PiPiCode : MonoBehaviour {
             float speed = rg2dPiPi.velocity.magnitude;
 
             if (speed > 10)
-                life -= 30;
+				GameControlScript.health -= 2;
             else if (speed > 5)
-                life -= 10;
+				GameControlScript.health -= 1;
 
             // stop PiPi's movement and make the slider and arrow reappear
             rg2dPiPi.velocity = Vector2.zero;
@@ -69,14 +69,16 @@ public class PiPiCode : MonoBehaviour {
         }
         else if (other.gameObject.CompareTag("Mushroom"))
         {
-            // eat a mushroom, recover 10 life
-            life += 10;
-
-            if (life > 100)
-                life = 100;
-
-            other.gameObject.SetActive(false);
+            // eat a mushroom
+			GameControlScript.health += 1;
+		    other.gameObject.SetActive(false);
         }
+		else if (other.gameObject.CompareTag("Sardine"))
+		{
+			// eat a sardine
+			GameControlScript.health += 1;
+			other.gameObject.SetActive(false);
+		}
 
 
 	}
