@@ -46,17 +46,17 @@ public class PiPiCode : MonoBehaviour {
 	}
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.gameObject.CompareTag("Mercury"))
-		{
+        if (other.gameObject.CompareTag("Mercury"))
+        {
             // get PiPi's terminal velocity
             // if too fast, PiPi lose a life
 
             float speed = rg2dPiPi.velocity.magnitude;
 
             if (speed > 10)
-				GameControlScript.health -= 2;
+                GameControlScript.health -= 2;
             else if (speed > 5)
-				GameControlScript.health -= 1;
+                GameControlScript.health -= 1;
 
             // stop PiPi's movement and make the slider and arrow reappear
             rg2dPiPi.velocity = Vector2.zero;
@@ -70,15 +70,19 @@ public class PiPiCode : MonoBehaviour {
         else if (other.gameObject.CompareTag("Mushroom"))
         {
             // eat a mushroom
-			GameControlScript.health += 1;
-		    other.gameObject.SetActive(false);
+            GameControlScript.health += 1;
+            other.gameObject.SetActive(false);
         }
-		else if (other.gameObject.CompareTag("Sardine"))
-		{
-			// eat a sardine
-			GameControlScript.health += 1;
-			other.gameObject.SetActive(false);
-		}
+        else if (other.gameObject.CompareTag("Sardine"))
+        {
+            // eat a sardine
+            GameControlScript.health += 1;
+            other.gameObject.SetActive(false);
+        }
+        else if (other.gameObject.CompareTag("Boundary"))
+        {
+            GameControlScript.health = 0;
+        }
 
 
 	}
