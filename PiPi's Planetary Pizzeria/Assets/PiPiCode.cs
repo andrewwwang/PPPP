@@ -71,6 +71,10 @@ public class PiPiCode : MonoBehaviour {
             PiPiCode.started = false;
             FillSlider.direction = 1;
 
+			// make PiPi stick to the planet
+			transform.parent = other.gameObject.transform;
+
+
         }
         else if (other.gameObject.CompareTag("Mushroom") || other.gameObject.CompareTag("Sardine") || other.gameObject.CompareTag("Olive") || other.gameObject.CompareTag("Pepperoni"))
         {

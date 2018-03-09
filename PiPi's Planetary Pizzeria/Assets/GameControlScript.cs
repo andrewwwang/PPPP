@@ -25,7 +25,7 @@ public class GameControlScript : MonoBehaviour {
 
 
     // Update is called once per frame
-    void Update () {
+    void FixedUpdate () {
 		if (health > 3)
 			health = 3;
 
@@ -55,7 +55,7 @@ public class GameControlScript : MonoBehaviour {
 		}
 
         // randomly move pickup objects
-        rg2dMushroom.position += new Vector2(Random.Range(-0.2f, 0.2f), Random.Range(-0.2f, 0.2f));
+        rg2dMushroom.position += new Vector2(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f));
 
     }
 }

@@ -40,8 +40,8 @@ public class FillSlider : MonoBehaviour {
 
         }
         else if (ss.value <= ss.minValue) {
-        direction = 1;
-        flipper.flipX = false;
+        	direction = 1;
+        	flipper.flipX = false;
         }
 	
         if ( Input.GetKeyUp(KeyCode.Space) )
@@ -62,6 +62,8 @@ public class FillSlider : MonoBehaviour {
             Arrow.gameObject.SetActive(false);
 			this.gameObject.SetActive (false);
 
+			rg2d.transform.parent = null;
+				
             PiPiCode.started = true;
         }
 			
