@@ -21,7 +21,7 @@ public class FillSlider : MonoBehaviour {
     Vector2 targetPosition;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
         direction = 1;
         rg2d = pizzaSlice.GetComponent<Rigidbody2D>();
         flipper = truck.GetComponent<SpriteRenderer>();

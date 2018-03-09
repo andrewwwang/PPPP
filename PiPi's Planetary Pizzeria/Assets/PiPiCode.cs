@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class PiPiCode : MonoBehaviour {
@@ -11,23 +12,19 @@ public class PiPiCode : MonoBehaviour {
     public GameObject slider;
     public static bool started;
 
-    public int life;
-
     private Rigidbody2D rg2dPiPi;
     private Rigidbody2D rg2dPlanet;
     private float G;
 
     
 	// Use this for initialization
-	void Start () {
+	void Awake () {
         rg2dPiPi = this.GetComponent<Rigidbody2D>();
         rg2dPlanet = planet.GetComponent<Rigidbody2D>();
 
         G = (float)(rg2dPiPi.mass * rg2dPlanet.mass * 6.67 / 800);
 
         started = false;
-
-        life = 100;
 
     }
 	
@@ -84,6 +81,10 @@ public class PiPiCode : MonoBehaviour {
             GameControlScript.health = 0;
         }
 
+        if (GameControlScript.health == 0)
+        {
+            SceneManager.LoadScene(3);
+        }
 
 	}
 

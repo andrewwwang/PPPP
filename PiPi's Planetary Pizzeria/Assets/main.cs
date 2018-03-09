@@ -4,7 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class main : MonoBehaviour {
-
+    public void Awake()
+    {
+        Cursor.visible = true;
+    }
     public void PlayGame()
     {
         SceneManager.LoadScene(1);
@@ -17,6 +20,10 @@ public class main : MonoBehaviour {
     public void QuitGame()
     {
         Application.Quit();
+    }
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 
 }

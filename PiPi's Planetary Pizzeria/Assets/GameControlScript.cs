@@ -7,16 +7,14 @@ public class GameControlScript : MonoBehaviour {
 	public GameObject Heart1;
 	public GameObject Heart2;
 	public GameObject Heart3;
-	public GameObject gameOver;
 	public static int health;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		health = 2;
 		Heart1.gameObject.SetActive (true);
 		Heart2.gameObject.SetActive (true);
 		Heart3.gameObject.SetActive (true);
-		gameOver.gameObject.SetActive (false);
 
 	}
 	
@@ -45,7 +43,6 @@ public class GameControlScript : MonoBehaviour {
 			Heart1.gameObject.SetActive (false);
 			Heart2.gameObject.SetActive (false);
 			Heart3.gameObject.SetActive (false);
-			gameOver.gameObject.SetActive (true);
 			Time.timeScale = 0;
 			break;
 

@@ -5,7 +5,7 @@ using UnityEngine;
 public class arrow : MonoBehaviour {
 
 	// Use this for initialization
-	void Start () {
+	public void Awake () {
         Cursor.visible = false;
 	}
 	
