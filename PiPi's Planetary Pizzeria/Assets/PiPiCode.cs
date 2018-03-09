@@ -8,42 +8,49 @@ public class PiPiCode : MonoBehaviour {
 
 
     public GameObject planet;
+    public GameObject destination;
     public GameObject arrow;
     public GameObject slider;
     public static bool started;
 
     private Rigidbody2D rg2dPiPi;
     private Rigidbody2D rg2dPlanet;
-    private float G;
+    private Rigidbody2D rg2dDestination;
 
-    
 	// Use this for initialization
 	void Awake () {
         rg2dPiPi = this.GetComponent<Rigidbody2D>();
         rg2dPlanet = planet.GetComponent<Rigidbody2D>();
-
-        G = (float)(rg2dPiPi.mass * rg2dPlanet.mass * 6.67 / 800);
+        rg2dDestination = destination.GetComponent<Rigidbody2D>();
 
         started = false;
 
     }
 	
+    void AddForce(Rigidbody2D planet)
+    {
+        // applying the force
+        Vector2 gravity = planet.transform.position - rg2dPiPi.transform.position;
+        float r = gravity.magnitude;
+
+        gravity.Normalize();
+        gravity *= (float)(rg2dPiPi.mass * planet.mass * 6.67 / 800) / r / r;
+        rg2dPiPi.AddForce(gravity);
+
+    }
+
 	// Update is called once per frame
 	void FixedUpdate () {
         if (started)
         {
             // applying the force
-            Vector2 gravity = rg2dPlanet.transform.position - rg2dPiPi.transform.position;
-            float r = gravity.magnitude;
-
-            gravity.Normalize();
-            gravity *= G / r / r;
-            rg2dPiPi.AddForce(gravity);
+            AddForce(rg2dPlanet);
+            AddForce(rg2dDestination);
         }
 	}
 	void OnTriggerEnter2D(Collider2D other)
 	{
-        if (other.gameObject.CompareTag("Mercury"))
+        if (other.gameObject.CompareTag("Mercury") || other.gameObject.CompareTag("Destination"))
         {
             // get PiPi's terminal velocity
             // if too fast, PiPi lose a life
@@ -63,19 +70,15 @@ public class PiPiCode : MonoBehaviour {
 
             PiPiCode.started = false;
             FillSlider.direction = 1;
+
         }
-        else if (other.gameObject.CompareTag("Mushroom"))
+        else if (other.gameObject.CompareTag("Mushroom") || other.gameObject.CompareTag("Sardine") || other.gameObject.CompareTag("Olive") || other.gameObject.CompareTag("Pepperoni"))
         {
             // eat a mushroom
             GameControlScript.health += 1;
             other.gameObject.SetActive(false);
         }
-        else if (other.gameObject.CompareTag("Sardine"))
-        {
-            // eat a sardine
-            GameControlScript.health += 1;
-            other.gameObject.SetActive(false);
-        }
+
         else if (other.gameObject.CompareTag("Boundary"))
         {
             GameControlScript.health = 0;
@@ -84,6 +87,11 @@ public class PiPiCode : MonoBehaviour {
         if (GameControlScript.health == 0)
         {
             SceneManager.LoadScene(3);
+        }
+
+        if (other.gameObject.CompareTag("Destination"))
+        {
+            SceneManager.LoadScene(2);
         }
 
 	}

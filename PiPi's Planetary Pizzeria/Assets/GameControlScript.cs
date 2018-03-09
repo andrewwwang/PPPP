@@ -7,7 +7,10 @@ public class GameControlScript : MonoBehaviour {
 	public GameObject Heart1;
 	public GameObject Heart2;
 	public GameObject Heart3;
+    public GameObject Mushroom;
 	public static int health;
+
+    private Rigidbody2D rg2dMushroom;
 
 	// Use this for initialization
 	void Awake () {
@@ -16,10 +19,13 @@ public class GameControlScript : MonoBehaviour {
 		Heart2.gameObject.SetActive (true);
 		Heart3.gameObject.SetActive (true);
 
+        rg2dMushroom = Mushroom.GetComponent<Rigidbody2D>();
+
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+
+    // Update is called once per frame
+    void Update () {
 		if (health > 3)
 			health = 3;
 
@@ -47,5 +53,9 @@ public class GameControlScript : MonoBehaviour {
 			break;
 
 		}
-	}
+
+        // randomly move pickup objects
+        rg2dMushroom.position += new Vector2(Random.Range(-0.2f, 0.2f), Random.Range(-0.2f, 0.2f));
+
+    }
 }
