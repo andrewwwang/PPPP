@@ -57,10 +57,13 @@ public class PiPiCode : MonoBehaviour {
 
             float speed = rg2dPiPi.velocity.magnitude;
 
-            if (speed > 10)
-                GameControlScript.health -= 2;
-            else if (speed > 5)
-                GameControlScript.health -= 1;
+			if (speed > 10) {
+				SoundManagerScript.PlaySound ("Explosion");
+				GameControlScript.health -= 2;
+			} else if (speed > 5) {
+				SoundManagerScript.PlaySound ("Explosion");
+				GameControlScript.health -= 1;
+			}
 
             // stop PiPi's movement and make the slider and arrow reappear
             rg2dPiPi.velocity = Vector2.zero;
@@ -103,7 +106,7 @@ public class PiPiCode : MonoBehaviour {
 				SceneManager.LoadScene (2);
 			} else if (PlayerPrefs.GetInt("Level") == 2) {
 				PlayerPrefs.SetInt ("Level", 3);
-				SceneManager.LoadScene (3);
+				SceneManager.LoadScene (4);
 			}
         }
 

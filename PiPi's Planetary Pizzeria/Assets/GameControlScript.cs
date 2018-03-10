@@ -17,6 +17,7 @@ public class GameControlScript : MonoBehaviour {
 		
 		health = PlayerPrefs.GetInt("Health");
 
+
 		Heart1.gameObject.SetActive (true);
 		Heart2.gameObject.SetActive (true);
 		Heart3.gameObject.SetActive (true);

@@ -12,10 +12,12 @@ public class FillSlider : MonoBehaviour {
     public GameObject point;
 	public GameObject truck;
 
+
     public static int direction;
 
     private Rigidbody2D rg2d;
     private SpriteRenderer flipper;
+
 
 
     Vector2 targetPosition;
@@ -46,6 +48,8 @@ public class FillSlider : MonoBehaviour {
 	
         if ( Input.GetKeyUp(KeyCode.Space) )
         {
+			//add sound
+			SoundManagerScript.PlaySound("Jump");
 
             // move the pizza to the nob location
 
@@ -56,6 +60,8 @@ public class FillSlider : MonoBehaviour {
             movement *= ss.value;
 
             rg2d.AddForce(movement);
+
+
 
 			direction = 0;
 

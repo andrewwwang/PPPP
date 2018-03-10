@@ -60,6 +60,7 @@
      <Compile Include="Assets\PiPiCode.cs" />
      <Compile Include="Assets\PipiFocus.cs" />
      <Compile Include="Assets\PlanetRotator.cs" />
+     <Compile Include="Assets\SoundManagerScript.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
