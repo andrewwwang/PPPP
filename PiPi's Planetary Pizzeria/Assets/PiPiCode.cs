@@ -95,11 +95,14 @@ public class PiPiCode : MonoBehaviour {
 
         if (other.gameObject.CompareTag("Destination"))
         {
-			if (GameControlScript.level == 1) {
-				GameControlScript.level = 2;
+			// save player health
+			PlayerPrefs.SetInt ("Health", GameControlScript.health);
+
+			if (PlayerPrefs.GetInt("Level") == 1) {
+				PlayerPrefs.SetInt ("Level", 2);
 				SceneManager.LoadScene (2);
-			} else if (GameControlScript.level == 2) {
-				GameControlScript.level = 3;
+			} else if (PlayerPrefs.GetInt("Level") == 2) {
+				PlayerPrefs.SetInt ("Level", 3);
 				SceneManager.LoadScene (3);
 			}
         }

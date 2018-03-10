@@ -1,15 +1,15 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\main.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\PiPiCode.cs">
     <Files>
       <File FileName="Assets\FillSlider.cs" Line="1" Column="1" />
       <File FileName="Assets\PipiFocus.cs" Line="1" Column="1" />
-      <File FileName="Assets\PiPiCode.cs" Line="102" Column="33" />
-      <File FileName="Assets\main.cs" Line="18" Column="31" />
+      <File FileName="Assets\PiPiCode.cs" Line="99" Column="60" />
+      <File FileName="Assets\main.cs" Line="15" Column="35" />
       <File FileName="Assets\GainHeart.cs" Line="1" Column="1" />
       <File FileName="Assets\crash.cs" Line="1" Column="1" />
-      <File FileName="Assets\GameControlScript.cs" Line="18" Column="13" />
-      <File FileName="Assets\PlanetRotator.cs" Line="17" Column="5" />
+      <File FileName="Assets\GameControlScript.cs" Line="19" Column="3" />
+      <File FileName="Assets\PlanetRotator.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
