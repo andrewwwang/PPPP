@@ -95,7 +95,13 @@ public class PiPiCode : MonoBehaviour {
 
         if (other.gameObject.CompareTag("Destination"))
         {
-            SceneManager.LoadScene(2);
+			if (GameControlScript.level == 1) {
+				GameControlScript.level = 2;
+				SceneManager.LoadScene (2);
+			} else if (GameControlScript.level == 2) {
+				GameControlScript.level = 3;
+				SceneManager.LoadScene (3);
+			}
         }
 
 	}

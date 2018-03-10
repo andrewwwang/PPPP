@@ -9,10 +9,15 @@ public class GameControlScript : MonoBehaviour {
 	public GameObject Heart3;
     public GameObject Mushroom;
 	public static int health;
+	public static int level;
 
     private Rigidbody2D rg2dMushroom;
 
 	// Use this for initialization
+	void Start() {
+		level = 1;
+	}
+
 	void Awake () {
 		health = 2;
 		Heart1.gameObject.SetActive (true);
