@@ -50,17 +50,18 @@ public class PiPiCode : MonoBehaviour {
 	}
 	void OnTriggerEnter2D(Collider2D other)
 	{
-        if (other.gameObject.CompareTag("Mercury") || other.gameObject.CompareTag("Destination"))
+        // || other.gameObject.CompareTag("Destination") 
+        if (other.gameObject.CompareTag("Mercury"))
         {
             // get PiPi's terminal velocity
             // if too fast, PiPi lose a life
 
             float speed = rg2dPiPi.velocity.magnitude;
 
-			if (speed > 10) {
+			if (speed > 12) {
 				SoundManagerScript.PlaySound ("Explosion");
 				GameControlScript.health -= 2;
-			} else if (speed > 5) {
+			} else if (speed > 7) {
 				SoundManagerScript.PlaySound ("Explosion");
 				GameControlScript.health -= 1;
 			}
