@@ -58,10 +58,10 @@ public class PiPiCode : MonoBehaviour {
 
             float speed = rg2dPiPi.velocity.magnitude;
 
-			if (speed > 12) {
+			if (speed > 15) {
 				SoundManagerScript.PlaySound ("Explosion");
 				GameControlScript.health -= 2;
-			} else if (speed > 7) {
+			} else if (speed > 5) {
 				SoundManagerScript.PlaySound ("Explosion");
 				GameControlScript.health -= 1;
 			}
