@@ -29,5 +29,9 @@ public class main : MonoBehaviour {
     {
         SceneManager.LoadScene(0);
     }
+    public void HowToPlay()
+    {
+        SceneManager.LoadScene(5);
+    }
 
 }

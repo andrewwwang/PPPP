@@ -61,7 +61,7 @@ public class PiPiCode : MonoBehaviour {
 			if (speed > 15) {
 				SoundManagerScript.PlaySound ("Explosion");
 				GameControlScript.health -= 2;
-			} else if (speed > 5) {
+			} else if (speed > 6) {
 				SoundManagerScript.PlaySound ("Explosion");
 				GameControlScript.health -= 1;
 			}
@@ -83,6 +83,7 @@ public class PiPiCode : MonoBehaviour {
         else if (other.gameObject.CompareTag("Mushroom") || other.gameObject.CompareTag("Sardine") || other.gameObject.CompareTag("Olive") || other.gameObject.CompareTag("Pepperoni"))
         {
             // eat a mushroom
+            SoundManagerScript.PlaySound("Eat");
             GameControlScript.health += 1;
             other.gameObject.SetActive(false);
         }
