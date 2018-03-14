@@ -61,7 +61,7 @@ public class PiPiCode : MonoBehaviour {
 			if (speed > 15) {
 				SoundManagerScript.PlaySound ("Explosion");
 				GameControlScript.health -= 2;
-			} else if (speed > 6) {
+			} else if (speed > 8) {
 				SoundManagerScript.PlaySound ("Explosion");
 				GameControlScript.health -= 1;
 			}

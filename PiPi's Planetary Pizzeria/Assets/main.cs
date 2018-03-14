@@ -33,5 +33,9 @@ public class main : MonoBehaviour {
     {
         SceneManager.LoadScene(5);
     }
+    public void Story()
+    {
+        SceneManager.LoadScene(6);
+    }
 
 }
